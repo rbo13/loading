@@ -86,7 +86,6 @@ func (loading *Loading) SetColor(c string) error {
 		return errColorNotFound
 	}
 	loading.Color = color.New(foregroundColorAttribute[c]).SprintFunc()
-	//loading.Restart()
 	return nil
 }
 
