@@ -1,6 +1,7 @@
 package loading_test
 
 import (
+	"errors"
 	"testing"
 
 	"github.com/whaangbuu/go-loading/loading"
@@ -36,6 +37,22 @@ func TestStartNew(t *testing.T) {
 	}
 }
 
+func TestSetColorErr(t *testing.T) {
+	l := loading.NewLoading("Setting color")
+	want := errors.New("color not found")
+	got := l.SetColor("black")
+
+	if want == got {
+		t.Errorf("Want '%v', but Got'%v'", want, got)
+	}
+}
+
 func TestSetColor(t *testing.T) {
-	//
+	loader := loading.NewLoading("Setting valid color")
+
+	colorErr := loader.SetColor("blue")
+
+	if colorErr != nil {
+		t.Errorf("ERROR DUE TO: %v", colorErr)
+	}
 }
