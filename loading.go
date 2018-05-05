@@ -26,7 +26,7 @@ var DefaultLoaders = []string{"⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "
 // allowableColors is a collection of allowed colors.
 var allowableColors = map[string]bool{
 	"red":   true,
-	"gree":  true,
+	"green": true,
 	"blue":  true,
 	"white": true, // The default color
 }
