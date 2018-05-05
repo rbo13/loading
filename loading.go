@@ -45,6 +45,7 @@ func IsColorAllowed(color string) bool {
 	return allowed
 }
 
+// Loading is our blueprint for loading.
 type Loading struct {
 	sync.Mutex
 	Title     string
@@ -57,6 +58,7 @@ type Loading struct {
 	Color     func(a ...interface{}) string
 }
 
+// NewLoading returns an instance of Loading
 func NewLoading(title string) *Loading {
 	loading := &Loading{
 		Title:     title,
@@ -71,16 +73,18 @@ func NewLoading(title string) *Loading {
 	return loading
 }
 
+// StartNew starts a new loader
 func StartNew(title string) *Loading {
 	return NewLoading(title).Start()
 }
 
-// start loading
+// Start starts the loading
 func (loading *Loading) Start() *Loading {
 	go loading.writer()
 	return loading
 }
 
+// SetColor sets the color of the loading
 func (loading *Loading) SetColor(c string) error {
 	if !IsColorAllowed(c) {
 		return errColorNotFound
@@ -89,7 +93,7 @@ func (loading *Loading) SetColor(c string) error {
 	return nil
 }
 
-// loading framerate speed
+// SetSpeed sets the speed of our loader
 func (loading *Loading) SetSpeed(rate time.Duration) *Loading {
 	loading.Lock()
 	loading.FrameRate = rate
@@ -134,6 +138,7 @@ func (loading *Loading) animate() {
 	}
 }
 
+// Writes to our channel
 func (loading *Loading) writer() {
 	loading.animate()
 	for {
@@ -146,6 +151,7 @@ func (loading *Loading) writer() {
 	}
 }
 
+// Clears the screen
 func (loading *Loading) clear() {
 	if !loading.NoTty {
 		fmt.Printf("\033[2K")
