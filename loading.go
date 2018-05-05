@@ -117,6 +117,7 @@ func (loading *Loading) Stop() {
 	})
 }
 
+// Restart restarts our loading
 func (loading *Loading) Restart() {
 	loading.Stop()
 	loading.Start()
