@@ -19,7 +19,9 @@ const (
 
 var errColorNotFound = errors.New("color not found")
 
-var Loaders = []string{"⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷"}
+// DefaultLoaders is the
+// default styles of loading
+var DefaultLoaders = []string{"⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷"}
 
 // allowableColors is a collection of allowed colors.
 var allowableColors = map[string]bool{
@@ -29,6 +31,8 @@ var allowableColors = map[string]bool{
 	"white": true, // The default color
 }
 
+// foregroundColorAttribute is a collection
+// of foreground attributes
 var foregroundColorAttribute = map[string]color.Attribute{
 	"red":   color.FgRed,
 	"green": color.FgGreen,
@@ -49,7 +53,7 @@ func IsColorAllowed(color string) bool {
 type Loading struct {
 	sync.Mutex
 	Title     string
-	Charset   []string
+	Loaders   []string
 	FrameRate time.Duration
 	runChan   chan struct{}
 	stopOnce  sync.Once
@@ -62,7 +66,7 @@ type Loading struct {
 func NewLoading(title string) *Loading {
 	loading := &Loading{
 		Title:     title,
-		Charset:   Loaders,
+		Loaders:   DefaultLoaders,
 		FrameRate: DEFAULT_FRAME_RATE,
 		runChan:   make(chan struct{}),
 		Color:     color.New(color.FgWhite).SprintFunc(),
@@ -104,7 +108,7 @@ func (loading *Loading) SetSpeed(rate time.Duration) *Loading {
 // SetLoaders set the character loader of the loading
 func (loading *Loading) SetLoaders(chars []string) *Loading {
 	loading.Lock()
-	loading.Charset = chars
+	loading.Loaders = chars
 	loading.Unlock()
 	return loading
 }
@@ -126,8 +130,8 @@ func (loading *Loading) Restart() {
 // animates our loader
 func (loading *Loading) animate() {
 	var out string
-	for i := 0; i < len(loading.Charset); i++ {
-		out = loading.Color(loading.Charset[i]) + " " + loading.Title
+	for i := 0; i < len(loading.Loaders); i++ {
+		out = loading.Color(loading.Loaders[i]) + " " + loading.Title
 		switch {
 		case loading.Output != nil:
 			fmt.Fprint(loading.Output, out)
