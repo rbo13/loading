@@ -3,6 +3,7 @@ package loading_test
 import (
 	"errors"
 	"testing"
+	"time"
 
 	"github.com/whaangbuu/go-loading/loading"
 )
@@ -55,4 +56,15 @@ func TestSetColor(t *testing.T) {
 	if colorErr != nil {
 		t.Errorf("ERROR DUE TO: %v", colorErr)
 	}
+}
+
+func TestSetSpeed(t *testing.T) {
+	loader := loading.NewLoading("Setting speed")
+
+	speedErr := loader.SetSpeed(200 * time.Millisecond)
+
+	if speedErr == nil {
+		t.Errorf("Loading instance is nil, due to: %v", speedErr)
+	}
+
 }
