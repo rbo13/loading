@@ -59,6 +59,8 @@ This stops the loader after 3 seconds.
 //some productive task here.
 loading.Stop()
 ```
+See `/examples` directory for more concise guide.
+
 
 #### Testing:
 See `loading_test.go`
