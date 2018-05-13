@@ -59,3 +59,11 @@ This stops the loader after 3 seconds.
 //some productive task here.
 loading.Stop()
 ```
+
+#### Testing:
+See `loading_test.go`
+
+
+#### TODO:
+- [ ] Improve tests
+- [ ] Write more test
