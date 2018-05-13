@@ -8,6 +8,13 @@ import (
 	"github.com/whaangbuu/go-loading/loading"
 )
 
+func TestSpin(t *testing.T) {
+	title := "Test spin"
+	t.Run(title, func(t *testing.T) {
+		showLoading(title)
+	})
+}
+
 func TestStart(t *testing.T) {
 	l := loading.NewLoading("Starting...")
 	got := l.Start()
@@ -67,4 +74,10 @@ func TestSetSpeed(t *testing.T) {
 		t.Errorf("Loading instance is nil, due to: %v", speedErr)
 	}
 
+}
+
+func showLoading(title string) {
+	loader := loading.StartNew(title)
+	defer loader.Stop()
+	time.Sleep(2 * time.Second)
 }
