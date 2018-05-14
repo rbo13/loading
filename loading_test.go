@@ -13,6 +13,7 @@ func TestSpin(t *testing.T) {
 	t.Run(title, func(t *testing.T) {
 		showLoading(title)
 	})
+
 }
 
 func TestStart(t *testing.T) {
@@ -74,6 +75,16 @@ func TestSetSpeed(t *testing.T) {
 		t.Errorf("Loading instance is nil, due to: %v", speedErr)
 	}
 
+}
+
+func TestSetLoader(t *testing.T) {
+	loader := loading.NewLoading("Set Loaders")
+
+	loaders := loader.SetLoaders([]string{"←", "↖", "↑", "↗", "→", "↘", "↓", "↙"})
+
+	if loaders == nil {
+		t.Errorf("Loaders not set due to: %v", loaders)
+	}
 }
 
 func showLoading(title string) {
