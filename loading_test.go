@@ -16,6 +16,16 @@ func TestSpin(t *testing.T) {
 
 }
 
+func TestRestart(t *testing.T) {
+	title := "Restarting..."
+
+	t.Run(title, func(t *testing.T) {
+		l := loading.StartNew(title)
+
+		l.Restart()
+	})
+}
+
 func TestStart(t *testing.T) {
 	l := loading.NewLoading("Starting...")
 	got := l.Start()
