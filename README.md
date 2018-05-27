@@ -3,7 +3,7 @@
 
 
 Go-Loading, or more likely `loading` is your custom loader in your every CLI application.
-
+![Travis](https://img.shields.io/travis/USER/REPO.svg)
 
 
 ### Installation:
@@ -13,17 +13,16 @@ Get it by using: `go get -u github.com/whaangbuu/loading`
 It adds a loader in your CLI Application.
 
 #### See clip below:
-
 [![asciicast](https://asciinema.org/a/3ft6E5zcUUsiyOQPqkErw9NM7.png)](https://asciinema.org/a/3ft6E5zcUUsiyOQPqkErw9NM7)
 
 ##### NOTE:
-`go-imgur-cli` is my sample CLI application that uploads images to [imgur](https://imgur.com)
+[`go-imgur-cli`](https://github.com/whaangbuu/go-imgur-cli) is my sample CLI application that uploads images to [imgur](https://imgur.com)
 
 #### How to use?
 Simply create a new `loading` instance.
 
 ```sh
-loading := loading.StartNew("<Your title>")
+loading := loading.StartNew("<some_title>")
 ```
 
 
@@ -56,7 +55,7 @@ This stops the loader after 3 seconds.
 
 #### Stopping the loader while waiting for a task.
 ```sh
-//some productive task here.
+// some productive task here.
 loading.Stop()
 ```
 See `/examples` directory for more concise guide.
