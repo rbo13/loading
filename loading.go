@@ -29,6 +29,7 @@ var allowableColors = map[string]bool{
 	"green": true,
 	"blue":  true,
 	"white": true, // The default color
+	"black": true,
 }
 
 // foregroundColorAttribute is a collection
@@ -38,6 +39,7 @@ var foregroundColorAttribute = map[string]color.Attribute{
 	"green": color.FgGreen,
 	"blue":  color.FgBlue,
 	"white": color.FgWhite,
+	"black": color.FgBlack,
 }
 
 // IsColorAllowed returns boolean if a color is allowed.
