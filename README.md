@@ -3,8 +3,7 @@
 
 
 Go-Loading, or more likely `loading` is your custom loader in your every CLI application.
-![Travis](https://img.shields.io/travis/USER/REPO.svg)
-
+![CircleCI](https://img.shields.io/circleci/project/github/RedSparr0w/node-csgo-parser.svg)
 
 ### Installation:
 Get it by using: `go get -u github.com/whaangbuu/loading`
