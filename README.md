@@ -3,6 +3,9 @@
 
 
 Go-Loading, or more likely `loading` is your custom loader in your every CLI application.
+
+
+
 ![CircleCI](https://img.shields.io/circleci/project/github/RedSparr0w/node-csgo-parser.svg)
 
 ### Installation:
