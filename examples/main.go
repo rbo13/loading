@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/whaangbuu/go-loading/loading"
+	"github.com/whaangbuu/loading"
 )
 
 func main() {
